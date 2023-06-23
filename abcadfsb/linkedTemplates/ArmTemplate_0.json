@@ -26,6 +26,14 @@
 		"trigger_adls_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb"
+		},
+		"trigger1_properties_final_pipeloine_parameters_source_file_name": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb"
 		}
 	},
 	"variables": {
@@ -162,6 +170,39 @@
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('trigger_adls_properties_typeProperties_scope')]",
+					"events": [
+						"Microsoft.Storage.BlobCreated"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/final_pipeloine')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/trigger1')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "final_pipeloine",
+							"type": "PipelineReference"
+						},
+						"parameters": {
+							"source_file_name": "[parameters('trigger1_properties_final_pipeloine_parameters_source_file_name')]"
+						}
+					}
+				],
+				"type": "BlobEventsTrigger",
+				"typeProperties": {
+					"blobPathBeginsWith": "/input/blobs/landing/",
+					"blobPathEndsWith": ".csv",
+					"ignoreEmptyBlobs": true,
+					"scope": "[parameters('trigger1_properties_typeProperties_scope')]",
 					"events": [
 						"Microsoft.Storage.BlobCreated"
 					]

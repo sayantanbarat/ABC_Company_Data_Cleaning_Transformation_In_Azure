@@ -27,6 +27,14 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb"
 		},
+		"trigger1_properties_final_pipeloine_parameters_source_file_name": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -68,6 +76,12 @@
 					},
 					"trigger_adls_properties_typeProperties_scope": {
 						"value": "[parameters('trigger_adls_properties_typeProperties_scope')]"
+					},
+					"trigger1_properties_final_pipeloine_parameters_source_file_name": {
+						"value": "[parameters('trigger1_properties_final_pipeloine_parameters_source_file_name')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
 					}
 				}
 			},
