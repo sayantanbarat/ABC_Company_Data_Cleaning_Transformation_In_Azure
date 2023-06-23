@@ -15,7 +15,13 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/azureproj2@gmail.com/Project_ABC/Project2 (1)"
+					"notebookPath": "/Users/azureproj2@gmail.com/Project_ABC/Project2 (1)",
+					"baseParameters": {
+						"fileName": {
+							"value": "@pipeline().parameters.source_file_name",
+							"type": "Expression"
+						}
+					}
 				},
 				"linkedServiceName": {
 					"referenceName": "AzureDatabricks1",
