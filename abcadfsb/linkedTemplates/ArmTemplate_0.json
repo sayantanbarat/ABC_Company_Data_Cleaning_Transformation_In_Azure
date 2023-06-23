@@ -19,6 +19,10 @@
 			"type": "string",
 			"defaultValue": "https://proj2storagesb.dfs.core.windows.net/"
 		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0617-163117-9xnasxny"
+		},
 		"trigger_adls_properties_final_pipeloine_parameters_source_file_name": {
 			"type": "string",
 			"defaultValue": "@triggerBody().fileName"
@@ -87,11 +91,7 @@
 						},
 						"secretName": "bricktoken"
 					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterVersion": "10.4.x-scala2.12",
-					"clusterOption": "Fixed",
-					"newClusterInitScripts": []
+					"existingClusterId": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
 				}
 			},
 			"dependsOn": [
