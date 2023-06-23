@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "abcadfsb"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://keykv1.vault.azure.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://proj2storagesb.dfs.core.windows.net/"
+		},
+		"trigger_adls_properties_final_pipeloine_parameters_source_file_name": {
+			"value": "@triggerBody().fileName"
+		},
+		"trigger_adls_properties_typeProperties_scope": {
+			"value": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
