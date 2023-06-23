@@ -1,0 +1,28 @@
+{
+	"name": "trigger_adls",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "final_pipeloine",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"source_file_name": "@triggerBody().fileName"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/input/blobs/landing/",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/33bf8a78-296f-4c02-a866-109fc2a78207/resourceGroups/azureproj2/providers/Microsoft.Storage/storageAccounts/proj2storagesb",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
